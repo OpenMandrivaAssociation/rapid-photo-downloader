@@ -1,8 +1,7 @@
 %define name	rapid-photo-downloader
 %define version	0.1.0
 %define prever beta2
-%define srcname %{name}-%{version}~b2
-%define release	%mkrel 0.%prever
+%define release	%mkrel 1
 %define Summary	Images downloader for external devices
 %define _iconstheme    hicolor
 %define _icons16dir    %_iconsdir/%{_iconstheme}/16x16/apps
@@ -15,8 +14,7 @@ Summary:	%Summary
 Name:		%name
 Version:	%version
 Release:	%release
-#Source0:	http://launchpad.net/rapid/0.1.0/%{version}/+download/%{srcname}.tar.gz
-Source0:	http://launchpad.net/rapid/trunk/%{version}%{prever}/+download/%{srcname}.tar.gz
+Source0:	http://launchpad.net/rapid/trunk/%{version}/+download/%{name}-%{version}.tar.gz
 License:	GPLv2
 Group:		Graphics
 URL:		http://damonlynch.net/rapid
@@ -55,12 +53,10 @@ creation, image renaming and backup.
 %{py_puresitedir}/rapid/
 %{py_puresitedir}/*.egg-info
 
-
-
 #---------------------------------------------------------------------
 
 %prep
-%setup -q -n %{srcname} 
+%setup -q 
 
 %build
 
