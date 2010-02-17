@@ -1,5 +1,5 @@
 %define name	rapid-photo-downloader
-%define version	0.1.2
+%define version	0.1.3
 %define prever beta2
 %define release	%mkrel 1
 %define Summary	Images downloader for external devices
