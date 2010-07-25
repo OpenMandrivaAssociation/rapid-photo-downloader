@@ -1,6 +1,5 @@
 %define name	rapid-photo-downloader
-%define version	0.1.3
-%define prever beta2
+%define version	0.3.0
 %define release	%mkrel 1
 %define Summary	Images downloader for external devices
 %define _iconstheme    hicolor
@@ -24,11 +23,14 @@ BuildRequires:	python-devel >= 2.5
 BuildRequires:	desktop-file-utils
 Requires:	findutils
 Requires:	python-imaging
+Requires:	python-kaa-metadata
 Requires:	gtk2
 Requires:	pygtk2
 Requires:	python-exiv2
+Requires:	exiv2
 Requires:	hicolor-icon-theme
 Requires:	gnome-python-gconf
+Requires:	ffmpegthumbnailer
 Suggests:	librsvg2
 
 %description
@@ -41,7 +43,7 @@ creation, image renaming and backup.
 
 %files  -f %{name}.lang
 %defattr(-,root,root)
-%doc rapid/AUTHORS rapid/ChangeLog rapid/COPYING rapid/TODO rapid/INSTALL
+%doc rapid/AUTHORS rapid/ChangeLog rapid/COPYING README
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
 %_icons16dir/%{name}.png
