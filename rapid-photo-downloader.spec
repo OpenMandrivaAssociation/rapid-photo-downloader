@@ -1,5 +1,5 @@
 %define name	rapid-photo-downloader
-%define version	0.3.3
+%define version	0.3.4
 %define release	%mkrel 1
 %define Summary	Images downloader for external devices
 %define _iconstheme    hicolor
