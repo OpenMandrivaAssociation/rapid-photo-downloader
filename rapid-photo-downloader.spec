@@ -1,32 +1,23 @@
-%define name	rapid-photo-downloader
-%define version	0.3.4
-%define release	%mkrel 1
-%define Summary	Images downloader for external devices
-%define _iconstheme    hicolor
-%define _icons16dir    %_iconsdir/%{_iconstheme}/16x16/apps
-%define _icons22dir    %_iconsdir/%{_iconstheme}/22x22/apps
-%define _icons24dir    %_iconsdir/%{_iconstheme}/24x24/apps
-%define _icons48dir    %_iconsdir/%{_iconstheme}/48x48/apps
-
-
-Summary:	%Summary
-Name:		%name
-Version:	%version
-Release:	%release
-Source0:	http://launchpad.net/rapid/trunk/%{version}/+download/%{name}-%{version}.tar.gz
+Name:		rapid-photo-downloader
+Version:	0.4.3
+Release:	%mkrel 1
+Summary:	Images downloader for external devices
 License:	GPLv2
 Group:		Graphics
 URL:		http://damonlynch.net/rapid
+Source0:	http://launchpad.net/rapid/trunk/%{version}/+download/%{name}-%{version}.tar.gz
 BuildArch:	noarch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildRequires:	python-devel >= 2.5
+BuildRequires:	python-devel
 BuildRequires:	desktop-file-utils
 Requires:	findutils
 Requires:	python-imaging
 Requires:	python-kaa-metadata
+Requires:	python-hachoir-metadata
 Requires:	gtk2
 Requires:	pygtk2
-Requires:	python-exiv2
+# Do NOT backport it to 2010.1 as python-exiv2 is too old there and
+# cannot be backported due to python >= 2.7 requires
+Requires:	python-exiv2 >= 0.3.0
 Requires:	exiv2
 Requires:	hicolor-icon-theme
 Requires:	gnome-python-gconf
@@ -46,32 +37,22 @@ creation, image renaming and backup.
 %doc rapid/AUTHORS rapid/ChangeLog rapid/COPYING README
 %{_bindir}/%{name}
 %{_datadir}/applications/%{name}.desktop
-%_icons16dir/%{name}.png
-%_icons22dir/%{name}.png
-%_icons24dir/%{name}.png
-%_icons48dir/%{name}.png
-%_datadir/pixmaps/%{name}.png
-%_datadir/pixmaps/%{name}.xpm
+%{_iconsdir}/hicolor/*/apps/%{name}.*
+%{_datadir}/pixmaps/%{name}.png
+%{_datadir}/pixmaps/%{name}.xpm
 %{py_puresitedir}/rapid/
 %{py_puresitedir}/*.egg-info
 
 #---------------------------------------------------------------------
 
 %prep
-%setup -q 
+%setup -q
 
 %build
-
 
 %install
 %__rm -rf %{buildroot}
 %__python setup.py install --root=%{buildroot}
-
-chmod 755 %{buildroot}/%{py_puresitedir}/rapid/renamesubfolderprefs.py \
-%{buildroot}/%{py_puresitedir}/rapid/common.py %{buildroot}/%{py_puresitedir}/rapid/metadata.py \
-%{buildroot}/%{py_puresitedir}/rapid/media.py %{buildroot}/%{py_puresitedir}/rapid/tableplusminus.py \
-%{buildroot}/%{py_puresitedir}/rapid/misc.py %{buildroot}/%{py_puresitedir}/rapid/rapid.py \
-%{buildroot}/%{py_puresitedir}/rapid/renamesubfolderprefstest.py
 
 %find_lang %{name}
 
