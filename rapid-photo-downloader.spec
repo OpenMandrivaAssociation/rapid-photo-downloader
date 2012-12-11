@@ -58,3 +58,54 @@ creation, image renaming and backup.
 
 %clean
 %__rm -rf %{buildroot}
+
+
+%changelog
+* Wed Feb 01 2012 Andrey Bondrov <abondrov@mandriva.org> 0.4.3-1mdv2011.0
++ Revision: 770374
+- New version 0.4.3, update BuildRequires, spec cleanup
+
+* Sun Jan 02 2011 John Balcaen <mikala@mandriva.org> 0.3.4-1mdv2011.0
++ Revision: 627500
+- Update to 0.3.4
+
+  + Sandro Cazzaniga <kharec@mandriva.org>
+    - new version 0.3.3
+
+* Mon Nov 22 2010 Funda Wang <fwang@mandriva.org> 0.3.1-2mdv2011.0
++ Revision: 599637
+- rebuild for py2.7
+
+* Sun Sep 05 2010 John Balcaen <mikala@mandriva.org> 0.3.1-1mdv2011.0
++ Revision: 576191
+- Update to 0.3.1
+
+* Sun Jul 25 2010 John Balcaen <mikala@mandriva.org> 0.3.0-1mdv2011.0
++ Revision: 559877
+- Update to 0.3.0
+- add somes requires suggested by upstream
+
+* Wed Feb 17 2010 John Balcaen <mikala@mandriva.org> 0.1.3-1mdv2010.1
++ Revision: 506891
+- update to 0.1.3
+
+* Sun Jan 17 2010 John Balcaen <mikala@mandriva.org> 0.1.2-1mdv2010.1
++ Revision: 492629
+- Update to 0.1.2
+
+* Thu Jan 07 2010 Frederik Himpe <fhimpe@mandriva.org> 0.1.1-1mdv2010.1
++ Revision: 487289
+- update to new version 0.1.1
+
+* Thu Dec 31 2009 John Balcaen <mikala@mandriva.org> 0.1.0-1mdv2010.1
++ Revision: 484310
+- Update to 0.1.0
+
+* Fri Dec 04 2009 John Balcaen <mikala@mandriva.org> 0.1.0-0.beta2mdv2010.1
++ Revision: 473232
+- Update to 0.1.0beta2
+
+* Sat Sep 26 2009 John Balcaen <mikala@mandriva.org> 0.0.10-1mdv2010.0
++ Revision: 449395
+- import rapid-photo-downloader
+
