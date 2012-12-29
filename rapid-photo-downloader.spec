@@ -1,11 +1,11 @@
 Name:		rapid-photo-downloader
-Version:	0.4.3
-Release:	%mkrel 1
+Version:	0.4.5
+Release:	1
 Summary:	Images downloader for external devices
 License:	GPLv2
 Group:		Graphics
 URL:		http://damonlynch.net/rapid
-Source0:	http://launchpad.net/rapid/trunk/%{version}/+download/%{name}-%{version}.tar.gz
+Source0:	https://launchpad.net/rapid/trunk/0.4.5/+download/%{name}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	python-devel
 BuildRequires:	desktop-file-utils
@@ -108,4 +108,5 @@ creation, image renaming and backup.
 * Sat Sep 26 2009 John Balcaen <mikala@mandriva.org> 0.0.10-1mdv2010.0
 + Revision: 449395
 - import rapid-photo-downloader
+
 
