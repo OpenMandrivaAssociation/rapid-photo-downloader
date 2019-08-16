@@ -21,12 +21,22 @@ Requires:	ffmpegthumbnailer
 Requires:	libmediainfo
 Requires:	libnotify
 
-Requires:	python3-qt5
+Requires:	python-qt5
 Requires:	python3dist(pygobject)
 Requires:	python3dist(requests)
 Requires:	python3dist(python-distutils-extra)
-Requires:	python3dist(xdg)
-Requires:	python3dist(sip)
+Requires:	python3dist(pyxdg)
+Requires:	python-sip
+
+# WIP. Need import more deps (list below) to make it work (angry)
+#python3dist(arrow)
+#python3dist(colour)
+#python3dist(easygui)
+#python3dist(gphoto2)
+#python3dist(pymediainfo)
+#python3dist(pyzmq)
+#python3dist(rawkit)
+#python3dist(sortedcontainers)
 
 %description
 Rapid Photo Downloader is written by a photographer for professional
