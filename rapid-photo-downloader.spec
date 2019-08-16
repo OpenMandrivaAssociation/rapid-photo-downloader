@@ -1,28 +1,32 @@
 Name:		rapid-photo-downloader
-Version:	0.4.5
-Release:	2
+Version:	0.9.16
+Release:	1
 Summary:	Images downloader for external devices
 License:	GPLv2
 Group:		Graphics
 URL:		http://damonlynch.net/rapid
-Source0:	https://launchpad.net/rapid/trunk/0.4.5/+download/%{name}-%{version}.tar.gz
+Source0:	https://launchpad.net/rapid/pyqt/%{version}/+download/%{name}-%{version}.tar.gz
 BuildArch:	noarch
-BuildRequires:	python-devel
+BuildRequires:	pkgconfig(python)
+BuildRequires:	python3dist(setuptools)
 BuildRequires:	desktop-file-utils
-Requires:	findutils
-Requires:	python-imaging
-Requires:	python-kaa-metadata
-Requires:	python-hachoir-metadata
-Requires:	gtk2
-Requires:	pygtk2
-# Do NOT backport it to 2010.1 as python-exiv2 is too old there and
-# cannot be backported due to python >= 2.7 requires
-Requires:	python-exiv2 >= 0.3.0
+BuildRequires:	intltool
+BuildRequires:	bzr
+BuildRequires:	gobject-introspection
+
 Requires:	exiv2
+Requires:	exif
 Requires:	hicolor-icon-theme
-Requires:	gnome-python-gconf
 Requires:	ffmpegthumbnailer
-Suggests:	librsvg2
+Requires:	libmediainfo
+Requires:	libnotify
+
+Requires:	python3-qt5
+Requires:	python3dist(pygobject)
+Requires:	python3dist(requests)
+Requires:	python3dist(python-distutils-extra)
+Requires:	python3dist(xdg)
+Requires:	python3dist(sip)
 
 %description
 Rapid Photo Downloader is written by a photographer for professional
@@ -32,32 +36,34 @@ multiple cameras, memory cards, and Portable Storage Devices
 simultaneously. It provides many options for subfolder
 creation, image renaming and backup.
 
-%files  -f %{name}.lang
-%defattr(-,root,root)
-%doc rapid/AUTHORS rapid/ChangeLog rapid/COPYING README
-%{_bindir}/%{name}
-%{_datadir}/applications/%{name}.desktop
-%{_iconsdir}/hicolor/*/apps/%{name}.*
-%{_datadir}/pixmaps/%{name}.png
-%{_datadir}/pixmaps/%{name}.xpm
-%{py_puresitedir}/rapid/
-%{py_puresitedir}/*.egg-info
+%files
+%doc CHANGES.rst README.rst RELEASE_NOTES.rst
+%{_bindir}/*
+%{_datadir}/applications/*.desktop
+%{_iconsdir}/%{name}/
+%{_datadir}/appdata/*%{name}.appdata.xml
+%{_datadir}/solid/*
+%{python_sitelib}/raphodo/
+%{python_sitelib}/*.egg-info
+%{_mandir}/man1/*
 
 #---------------------------------------------------------------------
 
 %prep
 %setup -q
+%autopatch -p1
+
+# drop bundled egg-info
+rm -rf *.egg-info/
 
 %build
+%py_build
 
 %install
-%__rm -rf %{buildroot}
-%__python setup.py install --root=%{buildroot}
+%py_install
 
-%find_lang %{name}
-
-%clean
-%__rm -rf %{buildroot}
+%__install -d %{buildroot}%{_iconsdir}/%{name}
+cp -a data/icons/* %{buildroot}%{_iconsdir}/%{name}/
 
 
 %changelog
