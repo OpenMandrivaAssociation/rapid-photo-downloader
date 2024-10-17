@@ -4,7 +4,7 @@ Release:	2
 Summary:	Images downloader for external devices
 License:	GPLv2
 Group:		Graphics
-URL:		http://damonlynch.net/rapid
+URL:		https://damonlynch.net/rapid
 Source0:	https://launchpad.net/rapid/trunk/0.4.5/+download/%{name}-%{version}.tar.gz
 BuildArch:	noarch
 BuildRequires:	python-devel
